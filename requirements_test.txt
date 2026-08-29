@@ -4,7 +4,7 @@
 # use them directly.
 pytest-homeassistant-custom-component==0.13.357
 pytest-cov==7.1.0
-syrupy==5.5.3
+syrupy==6.0.0
 freezegun==1.5.5
 ruff==0.16.0
 mypy==2.3.1
