@@ -8,3 +8,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # Exact-pinned inside pytest-homeassistant-custom-component; standalone
+      # bumps are unresolvable. They move together with the PHACC bump.
+      - dependency-name: syrupy
+      - dependency-name: pytest-cov
+      - dependency-name: freezegun
