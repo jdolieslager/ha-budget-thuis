@@ -1,0 +1,47 @@
+name: Bug report
+description: Something in the Budget Thuis integration is not working correctly.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thanks for taking the time to report a bug. Please fill in what you
+        can — the diagnostics file in particular saves a lot of back-and-forth.
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+      placeholder: "2026.8.3"
+    validations:
+      required: true
+  - type: input
+    id: integration_version
+    attributes:
+      label: Integration version
+      description: Shown on the integration page or in HACS.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: >-
+        Settings → Devices & Services → Budget Thuis → ⋮ → Download diagnostics,
+        and drag the file in here. Credentials, tokens, and your contract id are
+        redacted automatically.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: >-
+        Settings → System → Logs, filtered on budget_thuis. Please check for
+        personal data before pasting.
+      render: text
