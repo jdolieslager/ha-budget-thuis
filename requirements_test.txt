@@ -6,7 +6,7 @@ pytest-homeassistant-custom-component==0.13.357
 pytest-cov==7.1.0
 syrupy==5.5.3
 freezegun==1.5.5
-ruff==0.16.0
+ruff==0.16.4
 mypy==2.3.1
 
 # Runtime deps, mirrored from manifest.json requirements (needed to import the
