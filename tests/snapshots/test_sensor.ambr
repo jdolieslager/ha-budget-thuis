@@ -1,0 +1,1418 @@
+# serializer version: 1
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_average_price_today-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_average_price_today',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Average price today',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Average price today',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'average_price_today',
+    'unique_id': 'budget_thuis_test_entry_average_price_today',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_average_price_today-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Average price today',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_average_price_today',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.251666666666667',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_consumption_this_month-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.TOTAL: 'total'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_consumption_this_month',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Consumption this month',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 1,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.ENERGY: 'energy'>,
+    'original_icon': None,
+    'original_name': 'Consumption this month',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'consumption_month',
+    'unique_id': 'budget_thuis_test_entry_consumption_month',
+    'unit_of_measurement': <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_consumption_this_month-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'energy',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Consumption this month',
+      <SensorEntityStateAttribute.LAST_RESET: 'last_reset'>: '2026-01-01T00:00:00+01:00',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.TOTAL: 'total'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_consumption_this_month',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '24.85',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_consumption_yesterday-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_consumption_yesterday',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Consumption yesterday',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 3,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Consumption yesterday',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'consumption_yesterday',
+    'unique_id': 'budget_thuis_test_entry_consumption_yesterday',
+    'unit_of_measurement': <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_consumption_yesterday-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Consumption yesterday',
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_consumption_yesterday',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '11.25',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_contract_start-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_contract_start',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Contract start',
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TIMESTAMP: 'timestamp'>,
+    'original_icon': None,
+    'original_name': 'Contract start',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'contract_start',
+    'unique_id': 'budget_thuis_test_entry_contract_start',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_contract_start-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Contract start',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_contract_start',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '2025-05-31T22:00:00+00:00',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_contract_type-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_contract_type',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Contract type',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Contract type',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'contract_type',
+    'unique_id': 'budget_thuis_test_entry_contract_type',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_contract_type-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Contract type',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_contract_type',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'Dynamic',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_electricity_price-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_electricity_price',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Current electricity price',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Current electricity price',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'current_electricity_price',
+    'unique_id': 'budget_thuis_test_entry_current_electricity_price',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_electricity_price-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Current electricity price',
+      'prices': list([
+        dict({
+          'end': '2026-01-15T11:00:00+01:00',
+          'price': 0.28,
+          'start': '2026-01-15T10:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T12:00:00+01:00',
+          'price': 0.26,
+          'start': '2026-01-15T11:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T13:00:00+01:00',
+          'price': 0.22,
+          'start': '2026-01-15T12:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T14:00:00+01:00',
+          'price': 0.25,
+          'start': '2026-01-15T13:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T15:00:00+01:00',
+          'price': 0.31,
+          'start': '2026-01-15T14:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T16:00:00+01:00',
+          'price': 0.19,
+          'start': '2026-01-15T15:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-16T01:00:00+01:00',
+          'price': 0.21,
+          'start': '2026-01-16T00:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-16T02:00:00+01:00',
+          'price': 0.2,
+          'start': '2026-01-16T01:00:00+01:00',
+        }),
+      ]),
+      'prices_today': list([
+        dict({
+          'end': '2026-01-15T11:00:00+01:00',
+          'price': 0.28,
+          'start': '2026-01-15T10:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T12:00:00+01:00',
+          'price': 0.26,
+          'start': '2026-01-15T11:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T13:00:00+01:00',
+          'price': 0.22,
+          'start': '2026-01-15T12:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T14:00:00+01:00',
+          'price': 0.25,
+          'start': '2026-01-15T13:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T15:00:00+01:00',
+          'price': 0.31,
+          'start': '2026-01-15T14:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-15T16:00:00+01:00',
+          'price': 0.19,
+          'start': '2026-01-15T15:00:00+01:00',
+        }),
+      ]),
+      'prices_tomorrow': list([
+        dict({
+          'end': '2026-01-16T01:00:00+01:00',
+          'price': 0.21,
+          'start': '2026-01-16T00:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-16T02:00:00+01:00',
+          'price': 0.2,
+          'start': '2026-01-16T01:00:00+01:00',
+        }),
+      ]),
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'tomorrow_valid': True,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_electricity_price',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.25',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_price_commodity-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_price_commodity',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Current price commodity',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Current price commodity',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'current_price_commodity',
+    'unique_id': 'budget_thuis_test_entry_current_price_commodity',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_price_commodity-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Current price commodity',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_price_commodity',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.1089',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_price_energy_tax-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_price_energy_tax',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Current price energy tax',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Current price energy tax',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'current_price_energy_tax',
+    'unique_id': 'budget_thuis_test_entry_current_price_energy_tax',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_price_energy_tax-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Current price energy tax',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_price_energy_tax',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.121',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_price_surcharge-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_price_surcharge',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Current price surcharge',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Current price surcharge',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'current_price_surcharge',
+    'unique_id': 'budget_thuis_test_entry_current_price_surcharge',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_current_price_surcharge-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Current price surcharge',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_current_price_surcharge',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.0201',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_fixed_supply_cost-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_fixed_supply_cost',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Fixed supply cost',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 2,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.MONETARY: 'monetary'>,
+    'original_icon': None,
+    'original_name': 'Fixed supply cost',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'standing_charge',
+    'unique_id': 'budget_thuis_test_entry_standing_charge',
+    'unit_of_measurement': 'EUR',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_fixed_supply_cost-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'monetary',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Fixed supply cost',
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_fixed_supply_cost',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '5.99',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_highest_price_time_today-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_highest_price_time_today',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Highest price time today',
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TIMESTAMP: 'timestamp'>,
+    'original_icon': None,
+    'original_name': 'Highest price time today',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'highest_price_time_today',
+    'unique_id': 'budget_thuis_test_entry_highest_price_time_today',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_highest_price_time_today-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Highest price time today',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_highest_price_time_today',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '2026-01-15T13:00:00+00:00',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_highest_price_today-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_highest_price_today',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Highest price today',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Highest price today',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'highest_price_today',
+    'unique_id': 'budget_thuis_test_entry_highest_price_today',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_highest_price_today-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Highest price today',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_highest_price_today',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.31',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_lowest_price_time_today-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_lowest_price_time_today',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Lowest price time today',
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TIMESTAMP: 'timestamp'>,
+    'original_icon': None,
+    'original_name': 'Lowest price time today',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'lowest_price_time_today',
+    'unique_id': 'budget_thuis_test_entry_lowest_price_time_today',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_lowest_price_time_today-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Lowest price time today',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_lowest_price_time_today',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '2026-01-15T14:00:00+00:00',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_lowest_price_today-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_lowest_price_today',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Lowest price today',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Lowest price today',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'lowest_price_today',
+    'unique_id': 'budget_thuis_test_entry_lowest_price_today',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_lowest_price_today-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Lowest price today',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_lowest_price_today',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.19',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_meter_reading_mandate-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_meter_reading_mandate',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Meter reading mandate',
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Meter reading mandate',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'meter_reading_mandate',
+    'unique_id': 'budget_thuis_test_entry_meter_reading_mandate',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_meter_reading_mandate-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Meter reading mandate',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_meter_reading_mandate',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'Granted',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_monthly_advance_amount-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_monthly_advance_amount',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Monthly advance amount',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 2,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.MONETARY: 'monetary'>,
+    'original_icon': None,
+    'original_name': 'Monthly advance amount',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'monthly_advance_amount',
+    'unique_id': 'budget_thuis_test_entry_monthly_advance_amount',
+    'unit_of_measurement': 'EUR',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_monthly_advance_amount-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'monetary',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Monthly advance amount',
+      'maximum': 240.0,
+      'minimum': 95.0,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_monthly_advance_amount',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '150.0',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_net_cost_this_month-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.TOTAL: 'total'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_net_cost_this_month',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Net cost this month',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 2,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.MONETARY: 'monetary'>,
+    'original_icon': None,
+    'original_name': 'Net cost this month',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'net_cost_month',
+    'unique_id': 'budget_thuis_test_entry_net_cost_month',
+    'unit_of_measurement': 'EUR',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_net_cost_this_month-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'monetary',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Net cost this month',
+      <SensorEntityStateAttribute.LAST_RESET: 'last_reset'>: '2026-01-01T00:00:00+01:00',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.TOTAL: 'total'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_net_cost_this_month',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '5.8',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_net_cost_yesterday-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_net_cost_yesterday',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Net cost yesterday',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 2,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.MONETARY: 'monetary'>,
+    'original_icon': None,
+    'original_name': 'Net cost yesterday',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'net_cost_yesterday',
+    'unique_id': 'budget_thuis_test_entry_net_cost_yesterday',
+    'unit_of_measurement': 'EUR',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_net_cost_yesterday-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'monetary',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Net cost yesterday',
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_net_cost_yesterday',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '2.75',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_end-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_end',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Next free energy end',
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TIMESTAMP: 'timestamp'>,
+    'original_icon': None,
+    'original_name': 'Next free energy end',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'next_free_energy_end',
+    'unique_id': 'budget_thuis_test_entry_next_free_energy_end',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_end-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Next free energy end',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_end',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '2026-01-18T13:00:00+00:00',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_start-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_start',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Next free energy start',
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TIMESTAMP: 'timestamp'>,
+    'original_icon': None,
+    'original_name': 'Next free energy start',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'next_free_energy_start',
+    'unique_id': 'budget_thuis_test_entry_next_free_energy_start',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_start-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Next free energy start',
+      'periods': list([
+        dict({
+          'end': '2026-01-18T14:00:00+01:00',
+          'start': '2026-01-18T12:00:00+01:00',
+        }),
+        dict({
+          'end': '2026-01-25T14:00:00+01:00',
+          'start': '2026-01-25T12:00:00+01:00',
+        }),
+      ]),
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_next_free_energy_start',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '2026-01-18T11:00:00+00:00',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_next_hour_price-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_next_hour_price',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Next hour price',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 4,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Next hour price',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'next_hour_price',
+    'unique_id': 'budget_thuis_test_entry_next_hour_price',
+    'unit_of_measurement': 'EUR/kWh',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_next_hour_price-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Next hour price',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'EUR/kWh',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_next_hour_price',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.31',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_percentage_of_max_price-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_percentage_of_max_price',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Percentage of max price',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 0,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Percentage of max price',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'percentage_of_max',
+    'unique_id': 'budget_thuis_test_entry_percentage_of_max',
+    'unit_of_measurement': '%',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_percentage_of_max_price-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Percentage of max price',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: '%',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_percentage_of_max_price',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '80.6',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_production_this_month-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.TOTAL: 'total'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_production_this_month',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Production this month',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 1,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.ENERGY: 'energy'>,
+    'original_icon': None,
+    'original_name': 'Production this month',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'production_month',
+    'unique_id': 'budget_thuis_test_entry_production_month',
+    'unit_of_measurement': <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_production_this_month-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'energy',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Production this month',
+      <SensorEntityStateAttribute.LAST_RESET: 'last_reset'>: '2026-01-01T00:00:00+01:00',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.TOTAL: 'total'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_production_this_month',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '2.3',
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_production_yesterday-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_production_yesterday',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Production yesterday',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 3,
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Production yesterday',
+    'platform': 'budget_thuis',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'production_yesterday',
+    'unique_id': 'budget_thuis_test_entry_production_yesterday',
+    'unit_of_measurement': <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+  })
+# ---
+# name: test_sensor_snapshot[sensor.voorbeeldstraat_12_teststad_energy_production_yesterday-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Voorbeeldstraat 12, Teststad - Energy Production yesterday',
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: <UnitOfEnergy.KILO_WATT_HOUR: 'kWh'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.voorbeeldstraat_12_teststad_energy_production_yesterday',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '1.2',
+  })
+# ---

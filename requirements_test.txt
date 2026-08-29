@@ -1,0 +1,14 @@
+# Test/dev stack. PHACC 0.13.357 pins homeassistant==2026.8.3, the version this
+# integration is verified against; bump both together. pytest-cov, syrupy, and
+# freezegun ride along as PHACC dependencies but are pinned because the tests
+# use them directly.
+pytest-homeassistant-custom-component==0.13.357
+pytest-cov==7.1.0
+syrupy==5.5.3
+freezegun==1.5.5
+ruff==0.16.0
+mypy==2.3.1
+
+# Runtime deps, mirrored from manifest.json requirements (needed to import the
+# integration under test).
+aiobudgetthuis==0.1.1

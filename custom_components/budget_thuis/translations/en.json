@@ -1,0 +1,106 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Budget Thuis",
+        "description": "Log in with your Budget Thuis account. Your contract is detected automatically.",
+        "data": {
+          "username": "Email",
+          "password": "Password"
+        },
+        "data_description": {
+          "username": "The email address you use to sign in to the Budget Thuis app or website.",
+          "password": "Your Budget Thuis password. It is used once to log in and is never stored."
+        }
+      },
+      "select_contract": {
+        "title": "Select contract",
+        "description": "Choose the contract to add. Optionally give it a custom name.",
+        "data": {
+          "contract_id": "Contract",
+          "name": "Custom name (optional)"
+        },
+        "data_description": {
+          "contract_id": "The energy contract these sensors will report on.",
+          "name": "Shown as the device name and used in entity IDs. Defaults to a neutral name; the address is never used."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate Budget Thuis",
+        "description": "Enter the password for {username} to reconnect.",
+        "data": {
+          "password": "Password"
+        },
+        "data_description": {
+          "password": "Your current Budget Thuis password. It is used once to log in and is never stored."
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid credentials.",
+      "cannot_connect": "Failed to connect.",
+      "no_contracts": "No contracts found on this account.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This contract is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "reauth_account_mismatch": "This account does not have access to the configured contract. Re-authenticate with the original account."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Budget Thuis options",
+        "data": {
+          "update_interval": "Update interval",
+          "price_type": "Price type"
+        },
+        "data_description": {
+          "update_interval": "How often to fetch new prices, in minutes (5–360).",
+          "price_type": "Whether price sensors report gross (including VAT) or net (excluding VAT) prices."
+        }
+      }
+    }
+  },
+  "selector": {
+    "price_type": {
+      "options": {
+        "gross": "Gross (incl. VAT)",
+        "net": "Net (excl. VAT)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "current_electricity_price": { "name": "Current electricity price" },
+      "current_price_commodity": { "name": "Current price commodity" },
+      "current_price_energy_tax": { "name": "Current price energy tax" },
+      "current_price_surcharge": { "name": "Current price surcharge" },
+      "next_hour_price": { "name": "Next hour price" },
+      "average_price_today": { "name": "Average price today" },
+      "lowest_price_today": { "name": "Lowest price today" },
+      "highest_price_today": { "name": "Highest price today" },
+      "lowest_price_time_today": { "name": "Lowest price time today" },
+      "highest_price_time_today": { "name": "Highest price time today" },
+      "percentage_of_max": { "name": "Percentage of max price" },
+      "monthly_advance_amount": { "name": "Monthly advance amount" },
+      "consumption_yesterday": { "name": "Consumption yesterday" },
+      "production_yesterday": { "name": "Production yesterday" },
+      "net_cost_yesterday": { "name": "Net cost yesterday" },
+      "consumption_month": { "name": "Consumption this month" },
+      "production_month": { "name": "Production this month" },
+      "net_cost_month": { "name": "Net cost this month" },
+      "next_free_energy_start": { "name": "Next free energy start" },
+      "next_free_energy_end": { "name": "Next free energy end" },
+      "standing_charge": { "name": "Fixed supply cost" },
+      "contract_type": { "name": "Contract type" },
+      "contract_start": { "name": "Contract start" },
+      "meter_reading_mandate": { "name": "Meter reading mandate" }
+    },
+    "binary_sensor": {
+      "free_energy_active": { "name": "Free energy active" },
+      "free_energy_eligible": { "name": "Free energy eligible" }
+    }
+  }
+}

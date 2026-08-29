@@ -1,0 +1,5 @@
+{
+  "currentAdvanceAmount": {"amountNet": 123.97, "amountVat": 26.03, "amountGross": 150.0},
+  "minimumAdvanceAmount": 95,
+  "maximumAdvanceAmount": 240
+}

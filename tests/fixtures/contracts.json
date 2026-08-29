@@ -1,0 +1,14 @@
+[
+  {
+    "contractId": 12345678,
+    "contractStatus": "Active",
+    "contractType": "Energy",
+    "supplyAddress": {"street": "Voorbeeldstraat", "houseNumber": 12, "city": "Teststad"}
+  },
+  {
+    "contractId": 87654321,
+    "contractStatus": "Terminated",
+    "contractType": "Energy",
+    "supplyAddress": {"street": "Oudeweg", "houseNumber": 3, "city": "Teststad"}
+  }
+]

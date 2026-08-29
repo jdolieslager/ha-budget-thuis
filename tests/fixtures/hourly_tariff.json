@@ -1,0 +1,59 @@
+{
+  "tariffDays": [
+    {
+      "tariffsOfDate": "2026-01-15T00:00:00+01:00",
+      "reasonNoTariffs": null,
+      "electricityTariffs": [
+        {
+          "periodFrom": "2026-01-15T10:00:00+01:00",
+          "periodTo": "2026-01-15T11:00:00+01:00",
+          "totalTariff": {"amountNet": 0.2314, "amountVat": 0.0486, "amountGross": 0.28}
+        },
+        {
+          "periodFrom": "2026-01-15T11:00:00+01:00",
+          "periodTo": "2026-01-15T12:00:00+01:00",
+          "totalTariff": {"amountNet": 0.21488, "amountVat": 0.04512, "amountGross": 0.26}
+        },
+        {
+          "periodFrom": "2026-01-15T12:00:00+01:00",
+          "periodTo": "2026-01-15T13:00:00+01:00",
+          "totalTariff": {"amountNet": 0.18182, "amountVat": 0.03818, "amountGross": 0.22}
+        },
+        {
+          "periodFrom": "2026-01-15T13:00:00+01:00",
+          "periodTo": "2026-01-15T14:00:00+01:00",
+          "totalTariff": {"amountNet": 0.20661, "amountVat": 0.04339, "amountGross": 0.25},
+          "commodity": {"amountNet": 0.09, "amountVat": 0.0189, "amountGross": 0.1089},
+          "energyTax": {"amountNet": 0.1, "amountVat": 0.021, "amountGross": 0.121},
+          "surcharge": {"amountNet": 0.01661, "amountVat": 0.00349, "amountGross": 0.0201}
+        },
+        {
+          "periodFrom": "2026-01-15T14:00:00+01:00",
+          "periodTo": "2026-01-15T15:00:00+01:00",
+          "totalTariff": {"amountNet": 0.2562, "amountVat": 0.0538, "amountGross": 0.31}
+        },
+        {
+          "periodFrom": "2026-01-15T15:00:00+01:00",
+          "periodTo": "2026-01-15T16:00:00+01:00",
+          "totalTariff": {"amountNet": 0.15702, "amountVat": 0.03298, "amountGross": 0.19}
+        }
+      ]
+    },
+    {
+      "tariffsOfDate": "2026-01-16T00:00:00+01:00",
+      "reasonNoTariffs": null,
+      "electricityTariffs": [
+        {
+          "periodFrom": "2026-01-16T00:00:00+01:00",
+          "periodTo": "2026-01-16T01:00:00+01:00",
+          "totalTariff": {"amountNet": 0.17355, "amountVat": 0.03645, "amountGross": 0.21}
+        },
+        {
+          "periodFrom": "2026-01-16T01:00:00+01:00",
+          "periodTo": "2026-01-16T02:00:00+01:00",
+          "totalTariff": {"amountNet": 0.16529, "amountVat": 0.03471, "amountGross": 0.2}
+        }
+      ]
+    }
+  ]
+}

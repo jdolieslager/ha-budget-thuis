@@ -1,0 +1,15 @@
+{
+  "domain": "budget_thuis",
+  "name": "Budget Thuis",
+  "codeowners": ["@jdolieslager"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/jdolieslager/ha-budget-thuis",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/jdolieslager/ha-budget-thuis/issues",
+  "loggers": ["aiobudgetthuis"],
+  "quality_scale": "bronze",
+  "requirements": ["aiobudgetthuis==0.1.1"],
+  "version": "0.1.0"
+}

@@ -1,0 +1,69 @@
+# Tooling configuration only. This repo is not a Python package: runtime
+# dependencies live in custom_components/budget_thuis/manifest.json, and the
+# test stack is pinned in requirements_test.txt.
+
+[tool.ruff]
+required-version = ">=0.16.0"
+# py314 per the guideline's bump rule: HA 2026.8 requires Python >=3.14.2.
+target-version = "py314"
+# The guideline docs contain illustrative snippets; keep the formatter off them.
+extend-exclude = [".claude"]
+
+[tool.ruff.lint]
+select = [
+    "A001", "ASYNC", "B", "BLE", "C4", "COM818", "D", "DTZ", "E", "F", "FLY",
+    "FURB", "G", "I", "INP", "ISC", "ICN001", "LOG", "N", "PERF", "PGH", "PIE",
+    "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "SLOT", "T20",
+    "TC", "TID", "TRY", "UP", "W",
+    "ERA001",          # commented-out code (we forbid it — see comments-and-docs.md)
+    "TD002", "TD003",  # TODOs must have an author + a ticket link
+]
+ignore = [
+    "D203",    # conflicts with D211
+    "D213",    # conflicts with D212
+    "E501",    # line length handled by the formatter
+    "TRY003",  # long messages outside the exception class (noisy)
+    "TID252",  # allow relative imports within the integration package
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "PLR2004", "S101"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+combine-as-imports = true
+split-on-trailing-comma = false
+known-first-party = ["custom_components.budget_thuis"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 25
+
+[tool.ruff.format]
+# defaults match HA: double quotes, 88 cols, LF.
+
+[tool.mypy]
+python_version = "3.14"
+check_untyped_defs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_return_any = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unreachable = true
+strict_equality = true
+enable_error_code = ["ignore-without-code", "redundant-self", "explicit-override"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "--cov=custom_components.budget_thuis --cov-branch --cov-report=term-missing"

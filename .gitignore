@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+.idea/
+.vscode/
+*.log
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local-only helper scripts (personal dev environment, not part of the repo)
+scripts/

@@ -1,0 +1,26 @@
+{
+  "overviewPeriods": [
+    {
+      "usageCostsPerPeriod": [
+        {
+          "periodFrom": "2026-01-13T00:00:00+01:00",
+          "usageElectricityConsumption": {"rawUsage": 9.5, "isFinal": true},
+          "usageElectricityProduction": {"rawUsage": 0.8},
+          "totalCosts": {"totalRawCosts": {"amountGross": 2.1}}
+        },
+        {
+          "periodFrom": "2026-01-14T00:00:00+01:00",
+          "usageElectricityConsumption": {"rawUsage": 11.25, "isFinal": true},
+          "usageElectricityProduction": {"rawUsage": 1.2},
+          "totalCosts": {"totalRawCosts": {"amountGross": 2.75}}
+        },
+        {
+          "periodFrom": "2026-01-15T00:00:00+01:00",
+          "usageElectricityConsumption": {"rawUsage": 4.1, "isFinal": false},
+          "usageElectricityProduction": {"rawUsage": 0.3},
+          "totalCosts": {"totalRawCosts": {"amountGross": 0.95}}
+        }
+      ]
+    }
+  ]
+}
