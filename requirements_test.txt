@@ -2,7 +2,7 @@
 # integration is verified against; bump both together. pytest-cov, syrupy, and
 # freezegun ride along as PHACC dependencies but are pinned because the tests
 # use them directly.
-pytest-homeassistant-custom-component==0.13.357
+pytest-homeassistant-custom-component==0.13.361
 pytest-cov==7.1.0
 syrupy==5.5.3
 freezegun==1.5.5
