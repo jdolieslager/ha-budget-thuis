@@ -329,9 +329,9 @@ async def async_setup_entry(
 ) -> None:
     """Set up price and account sensors from the two coordinators."""
     data = entry.runtime_data
-    entities: list[SensorEntity] = [
-        PriceSensor(data.prices, desc) for desc in PRICE_SENSORS
-    ]
+    entities: list[SensorEntity] = []
+    if data.prices is not None:
+        entities += [PriceSensor(data.prices, desc) for desc in PRICE_SENSORS]
     entities += [AccountSensor(data.account, desc) for desc in ACCOUNT_SENSORS]
     async_add_entities(entities)
 

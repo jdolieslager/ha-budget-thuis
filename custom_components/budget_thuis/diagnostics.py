@@ -23,13 +23,15 @@ async def async_get_config_entry_diagnostics(
     hass: HomeAssistant, entry: BudgetThuisConfigEntry
 ) -> dict[str, Any]:
     """Return redacted entry data plus data-availability flags."""
-    prices = entry.runtime_data.prices.data
+    coordinator = entry.runtime_data.prices
+    prices = coordinator.data if coordinator else None
     account = entry.runtime_data.account.data
     return {
         "entry_data": async_redact_data(dict(entry.data), TO_REDACT),
         "options": dict(entry.options),
         "price_slot_count": len(prices.slots) if prices else 0,
         "price_type": prices.price_type if prices else None,
+        "hourly_tariff": coordinator is not None,
         "account_available": {
             "advance": bool(account and account.advance),
             "usage": bool(account and account.usage),

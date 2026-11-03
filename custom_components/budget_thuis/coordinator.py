@@ -54,7 +54,8 @@ type BudgetThuisConfigEntry = ConfigEntry[RuntimeData]
 class RuntimeData:
     """Runtime objects stored on the config entry."""
 
-    prices: PriceCoordinator
+    # None for fixed-price contracts, which have no hourly tariff.
+    prices: PriceCoordinator | None
     account: AccountCoordinator
 
 
@@ -120,6 +121,8 @@ class PriceCoordinator(DataUpdateCoordinator[PriceData]):
         )
         self.entry = entry
         self._tokens = tokens
+        # Set when the API reports no hourly tariff (404): a fixed-price contract.
+        self.no_hourly_tariff = False
 
     @override
     async def _async_update_data(self) -> PriceData:
@@ -137,7 +140,10 @@ class PriceCoordinator(DataUpdateCoordinator[PriceData]):
             except BudgetThuisAuthError as err:
                 raise ConfigEntryAuthFailed(str(err)) from err
             except BudgetThuisConnectionError as err:
+                # The client only exposes the status in the message.
+                self.no_hourly_tariff = str(err).endswith("status 404")
                 raise UpdateFailed(f"tariff fetch failed: {err}") from err
+        self.no_hourly_tariff = False
         price_type = self.entry.options.get(CONF_PRICE_TYPE, DEFAULT_PRICE_TYPE)
         return PriceData(details, price_type)
 

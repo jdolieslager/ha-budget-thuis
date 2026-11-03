@@ -1,0 +1,162 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Budget Thuis",
+        "description": "Budget Thuis logt in met een inloglink per e-mail. Vul het e-mailadres van je account in; er wordt een inloglink naartoe gestuurd. Je contract wordt automatisch gevonden.",
+        "data": {
+          "username": "E-mailadres"
+        },
+        "data_description": {
+          "username": "Het e-mailadres waarmee je inlogt in de Budget Thuis-app of op de website."
+        }
+      },
+      "select_contract": {
+        "title": "Kies contract",
+        "description": "Kies het contract dat je wilt toevoegen. Geef het eventueel een eigen naam.",
+        "data": {
+          "contract_id": "Contract",
+          "name": "Eigen naam (optioneel)"
+        },
+        "data_description": {
+          "contract_id": "Het energiecontract waarover de sensoren rapporteren.",
+          "name": "Wordt de apparaatnaam en zit in de entiteit-ID's. Standaard een neutrale naam; je adres wordt nooit gebruikt."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Budget Thuis opnieuw verbinden",
+        "description": "Je Budget Thuis-sessie is verlopen. Bevestig om een nieuwe inloglink te sturen naar {username}."
+      },
+      "link": {
+        "title": "Plak de inloglink",
+        "description": "Er is een inloglink gestuurd naar {username}. Klik er NIET op: klik met rechts (of houd ingedrukt) op de inlogknop in de e-mail, kopieer het linkadres en plak het hieronder. De link werkt maar één keer en verloopt na korte tijd.",
+        "data": {
+          "login_link": "Inloglink"
+        },
+        "data_description": {
+          "login_link": "De volledige link uit de e-mail van Budget Thuis. Wordt één keer gebruikt om in te loggen en niet opgeslagen."
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Inloggen geweigerd door Budget Thuis.",
+      "invalid_email": "Budget Thuis accepteert dit e-mailadres niet.",
+      "invalid_link": "Deze inloglink is ongeldig, verlopen of al gebruikt. Ga terug en vraag een nieuwe link aan.",
+      "cannot_connect": "Kan geen verbinding maken.",
+      "no_contracts": "Geen contracten gevonden op dit account.",
+      "unknown": "Onverwachte fout."
+    },
+    "abort": {
+      "already_configured": "Dit contract is al toegevoegd.",
+      "reauth_successful": "Opnieuw verbinden is gelukt.",
+      "reauth_account_mismatch": "Dit account heeft geen toegang tot het ingestelde contract. Log in met het oorspronkelijke account."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Budget Thuis-opties",
+        "data": {
+          "update_interval": "Update-interval",
+          "price_type": "Prijstype"
+        },
+        "data_description": {
+          "update_interval": "Hoe vaak nieuwe prijzen worden opgehaald, in minuten (5–360).",
+          "price_type": "Of prijssensoren bruto (incl. btw) of netto (excl. btw) prijzen tonen."
+        }
+      }
+    }
+  },
+  "selector": {
+    "price_type": {
+      "options": {
+        "gross": "Bruto (incl. btw)",
+        "net": "Netto (excl. btw)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "current_electricity_price": {
+        "name": "Current electricity price"
+      },
+      "current_price_commodity": {
+        "name": "Current price commodity"
+      },
+      "current_price_energy_tax": {
+        "name": "Current price energy tax"
+      },
+      "current_price_surcharge": {
+        "name": "Current price surcharge"
+      },
+      "next_hour_price": {
+        "name": "Next hour price"
+      },
+      "average_price_today": {
+        "name": "Average price today"
+      },
+      "lowest_price_today": {
+        "name": "Lowest price today"
+      },
+      "highest_price_today": {
+        "name": "Highest price today"
+      },
+      "lowest_price_time_today": {
+        "name": "Lowest price time today"
+      },
+      "highest_price_time_today": {
+        "name": "Highest price time today"
+      },
+      "percentage_of_max": {
+        "name": "Percentage of max price"
+      },
+      "monthly_advance_amount": {
+        "name": "Monthly advance amount"
+      },
+      "consumption_yesterday": {
+        "name": "Consumption yesterday"
+      },
+      "production_yesterday": {
+        "name": "Production yesterday"
+      },
+      "net_cost_yesterday": {
+        "name": "Net cost yesterday"
+      },
+      "consumption_month": {
+        "name": "Consumption this month"
+      },
+      "production_month": {
+        "name": "Production this month"
+      },
+      "net_cost_month": {
+        "name": "Net cost this month"
+      },
+      "next_free_energy_start": {
+        "name": "Next free energy start"
+      },
+      "next_free_energy_end": {
+        "name": "Next free energy end"
+      },
+      "standing_charge": {
+        "name": "Fixed supply cost"
+      },
+      "contract_type": {
+        "name": "Contract type"
+      },
+      "contract_start": {
+        "name": "Contract start"
+      },
+      "meter_reading_mandate": {
+        "name": "Meter reading mandate"
+      }
+    },
+    "binary_sensor": {
+      "free_energy_active": {
+        "name": "Free energy active"
+      },
+      "free_energy_eligible": {
+        "name": "Free energy eligible"
+      }
+    }
+  }
+}

@@ -15,12 +15,16 @@ price-based automations.
 1. HACS → ⋮ → Custom repositories → add `https://github.com/jdolieslager/ha-budget-thuis`, category **Integration**.
 2. Install "Budget Thuis", restart Home Assistant.
 3. Settings → Devices & Services → Add Integration → **Budget Thuis**.
-4. Enter your account email and password. Your **contract is detected
-   automatically** — if you have more than one, you pick it from a list.
+4. Enter your account email. Budget Thuis sends you a **login link** by e-mail
+   (passwords are no longer supported).
+5. **Do not click the link.** Right-click (or long-press) the login button in the
+   e-mail, copy the link address and paste it into Home Assistant. Your
+   **contract is detected automatically** — if you have more than one, you pick
+   it from a list.
 
-Credentials are used once to obtain an OAuth token; only the **refresh token** is
-stored (the password is discarded). If the token is ever revoked, HA prompts you
-to re-authenticate.
+The link is used once to obtain an OAuth token; only the **refresh token** is
+stored (the link is discarded). If the token is ever revoked, HA prompts you
+to re-authenticate and sends a new link.
 
 ## Entities
 
@@ -69,7 +73,7 @@ Settings → the integration → Configure:
 
 1. Settings → Devices & Services → **Budget Thuis** → ⋮ → **Delete** (removes the
    entry, its device, and all entities; the stored refresh token is discarded).
-2. Optionally revoke the session by changing your Budget Thuis password.
+2. Optionally revoke the session by logging out of all devices in your Budget Thuis account.
 3. To uninstall completely: HACS → Budget Thuis → ⋮ → **Remove**, then restart
    Home Assistant.
 

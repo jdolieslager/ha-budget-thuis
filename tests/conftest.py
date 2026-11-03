@@ -101,6 +101,18 @@ def mock_setup_entry() -> Generator[AsyncMock]:
 
 
 @pytest.fixture
+def mock_login() -> Generator[MagicMock]:
+    """Patch the magic-link login used by the config flow."""
+    with patch(
+        "custom_components.budget_thuis.config_flow.MagicLinkLogin", autospec=True
+    ) as login_cls:
+        login = login_cls.return_value
+        login.async_request_link.return_value = None
+        login.async_complete.side_effect = fresh_tokens
+        yield login
+
+
+@pytest.fixture
 def mock_client() -> Generator[MagicMock]:
     """Patch BudgetThuisClient everywhere the integration imports it.
 
@@ -119,7 +131,6 @@ def mock_client() -> Generator[MagicMock]:
         ),
     ):
         client = client_cls.return_value
-        client.login.side_effect = fresh_tokens
         client.refresh.side_effect = fresh_tokens
         client.async_get_contracts.return_value = [
             Contract.from_dict(c) for c in load_json_array_fixture("contracts.json")

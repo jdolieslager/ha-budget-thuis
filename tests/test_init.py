@@ -28,6 +28,7 @@ async def test_setup_and_unload_entry(
 
     assert entry.state is ConfigEntryState.LOADED
     assert isinstance(entry.runtime_data, RuntimeData)
+    assert entry.runtime_data.prices is not None
     assert entry.runtime_data.prices.last_update_success
     assert entry.runtime_data.account.last_update_success
     # The API returned the same refresh token, so entry.data must be untouched.
@@ -109,3 +110,24 @@ async def test_setup_auth_failure_starts_single_reauth(
     assert len(flows) == 1
     assert flows[0]["context"]["source"] == SOURCE_REAUTH
     assert flows[0]["step_id"] == "reauth_confirm"
+
+
+async def test_fixed_contract_sets_up_without_prices(
+    hass: HomeAssistant,
+    mock_client: MagicMock,
+    mock_config_entry: MockConfigEntry,
+) -> None:
+    """A 404 on the hourly tariff (fixed-price contract) skips price sensors."""
+    mock_client.hourly_tariff.side_effect = BudgetThuisConnectionError(
+        "hourlytariff: status 404"
+    )
+    mock_config_entry.add_to_hass(hass)
+    await hass.config_entries.async_setup(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+
+    assert mock_config_entry.state is ConfigEntryState.LOADED
+    assert mock_config_entry.runtime_data.prices is None
+    assert mock_config_entry.runtime_data.account.last_update_success
+    sensors = hass.states.async_entity_ids("sensor")
+    assert sensors
+    assert not [e for e in sensors if "price" in e or "prijs" in e]

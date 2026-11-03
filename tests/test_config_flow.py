@@ -2,23 +2,24 @@
 
 from __future__ import annotations
 
-import time
 from typing import TYPE_CHECKING, Any
 
-from aiobudgetthuis import BudgetThuisAuthError, BudgetThuisConnectionError, Tokens
+from aiobudgetthuis import BudgetThuisAuthError, BudgetThuisConnectionError
 from homeassistant.config_entries import SOURCE_USER
-from homeassistant.const import CONF_NAME, CONF_PASSWORD, CONF_TOKEN, CONF_USERNAME
+from homeassistant.const import CONF_NAME, CONF_TOKEN, CONF_USERNAME
 from homeassistant.data_entry_flow import FlowResultType, InvalidData
 import pytest
 
+from custom_components.budget_thuis.auth import BudgetThuisInvalidLinkError
 from custom_components.budget_thuis.const import (
     CONF_CONTRACT_ID,
+    CONF_LOGIN_LINK,
     CONF_PRICE_TYPE,
     CONF_UPDATE_INTERVAL,
     DOMAIN,
 )
 
-from .conftest import TEST_CONTRACT_ID, TEST_REFRESH_TOKEN, TEST_USERNAME
+from .conftest import TEST_CONTRACT_ID, TEST_REFRESH_TOKEN, TEST_USERNAME, fresh_tokens
 
 if TYPE_CHECKING:
     from unittest.mock import AsyncMock, MagicMock
@@ -26,7 +27,9 @@ if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
     from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-TEST_PASSWORD = "correct-horse-battery"
+TEST_LINK = "https://accounts.budgetthuis.nl/some-login-link?token=fictional"
+
+pytestmark = pytest.mark.usefixtures("mock_login")
 
 
 async def _start_user_flow(hass: HomeAssistant) -> dict[str, Any]:
@@ -39,19 +42,38 @@ async def _start_user_flow(hass: HomeAssistant) -> dict[str, Any]:
     return result
 
 
-async def _submit_credentials(hass: HomeAssistant, flow_id: str) -> dict[str, Any]:
+async def _submit_email(hass: HomeAssistant, flow_id: str) -> dict[str, Any]:
     return await hass.config_entries.flow.async_configure(
-        flow_id, {CONF_USERNAME: TEST_USERNAME, CONF_PASSWORD: TEST_PASSWORD}
+        flow_id, {CONF_USERNAME: TEST_USERNAME}
     )
 
 
+async def _submit_link(hass: HomeAssistant, flow_id: str) -> dict[str, Any]:
+    return await hass.config_entries.flow.async_configure(
+        flow_id, {CONF_LOGIN_LINK: TEST_LINK}
+    )
+
+
+async def _login(hass: HomeAssistant) -> dict[str, Any]:
+    result = await _start_user_flow(hass)
+    result = await _submit_email(hass, result["flow_id"])
+    assert result["type"] is FlowResultType.FORM
+    assert result["step_id"] == "link"
+    assert result["description_placeholders"] == {"username": TEST_USERNAME}
+    return await _submit_link(hass, result["flow_id"])
+
+
 async def test_full_flow_with_alias(
-    hass: HomeAssistant, mock_client: MagicMock, mock_setup_entry: AsyncMock
+    hass: HomeAssistant,
+    mock_client: MagicMock,
+    mock_login: MagicMock,
+    mock_setup_entry: AsyncMock,
 ) -> None:
     """The happy path creates an entry titled with the user's alias."""
-    result = await _start_user_flow(hass)
-    result = await _submit_credentials(hass, result["flow_id"])
+    result = await _login(hass)
 
+    mock_login.async_request_link.assert_awaited_once_with(TEST_USERNAME)
+    mock_login.async_complete.assert_awaited_once_with(TEST_LINK)
     assert result["type"] is FlowResultType.FORM
     assert result["step_id"] == "select_contract"
 
@@ -62,7 +84,7 @@ async def test_full_flow_with_alias(
 
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["title"] == "Home Energy"
-    # Exactly these keys: the refresh token, never the password.
+    # Exactly these keys: the refresh token, never the login link.
     assert result["data"] == {
         CONF_USERNAME: TEST_USERNAME,
         CONF_CONTRACT_ID: TEST_CONTRACT_ID,
@@ -80,8 +102,7 @@ async def test_full_flow_without_alias(
     alias_input: dict[str, str],
 ) -> None:
     """An empty or whitespace alias falls back to a neutral type-based title."""
-    result = await _start_user_flow(hass)
-    result = await _submit_credentials(hass, result["flow_id"])
+    result = await _login(hass)
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_CONTRACT_ID: TEST_CONTRACT_ID, **alias_input}
     )
@@ -93,36 +114,58 @@ async def test_full_flow_without_alias(
 @pytest.mark.parametrize(
     ("side_effect", "error"),
     [
-        (BudgetThuisAuthError("bad credentials"), "invalid_auth"),
+        (BudgetThuisAuthError("rejected"), "invalid_email"),
         (BudgetThuisConnectionError("timeout"), "cannot_connect"),
         (RuntimeError("boom"), "unknown"),
     ],
 )
-async def test_user_step_errors_and_recovery(
+@pytest.mark.usefixtures("mock_client", "mock_setup_entry")
+async def test_request_link_errors_and_recovery(
     hass: HomeAssistant,
-    mock_client: MagicMock,
-    mock_setup_entry: AsyncMock,
+    mock_login: MagicMock,
     side_effect: Exception,
     error: str,
 ) -> None:
-    """A failing login shows the mapped error; a retry then succeeds."""
-    mock_client.login.side_effect = side_effect
+    """A failing link request shows the mapped error; a retry then succeeds."""
+    mock_login.async_request_link.side_effect = side_effect
 
     result = await _start_user_flow(hass)
-    result = await _submit_credentials(hass, result["flow_id"])
-
+    result = await _submit_email(hass, result["flow_id"])
     assert result["type"] is FlowResultType.FORM
     assert result["step_id"] == "user"
     assert result["errors"] == {"base": error}
 
-    mock_client.login.side_effect = None
-    mock_client.login.return_value = Tokens(
-        access_token="test-access-token",
-        refresh_token=TEST_REFRESH_TOKEN,
-        expires_at=time.time() + 3600,
-    )
-    result = await _submit_credentials(hass, result["flow_id"])
+    mock_login.async_request_link.side_effect = None
+    result = await _submit_email(hass, result["flow_id"])
+    assert result["step_id"] == "link"
+
+
+@pytest.mark.parametrize(
+    ("side_effect", "error"),
+    [
+        (BudgetThuisInvalidLinkError("used"), "invalid_link"),
+        (BudgetThuisAuthError("refused"), "invalid_auth"),
+        (BudgetThuisConnectionError("timeout"), "cannot_connect"),
+        (RuntimeError("boom"), "unknown"),
+    ],
+)
+@pytest.mark.usefixtures("mock_client", "mock_setup_entry")
+async def test_link_errors_and_recovery(
+    hass: HomeAssistant,
+    mock_login: MagicMock,
+    side_effect: Exception,
+    error: str,
+) -> None:
+    """A failing link shows the mapped error; pasting a good one then succeeds."""
+    mock_login.async_complete.side_effect = side_effect
+
+    result = await _login(hass)
     assert result["type"] is FlowResultType.FORM
+    assert result["step_id"] == "link"
+    assert result["errors"] == {"base": error}
+
+    mock_login.async_complete.side_effect = fresh_tokens
+    result = await _submit_link(hass, result["flow_id"])
     assert result["step_id"] == "select_contract"
 
     result = await hass.config_entries.flow.async_configure(
@@ -138,16 +181,13 @@ async def test_no_contracts_and_recovery(
     contracts = mock_client.async_get_contracts.return_value
     mock_client.async_get_contracts.return_value = []
 
-    result = await _start_user_flow(hass)
-    result = await _submit_credentials(hass, result["flow_id"])
-
+    result = await _login(hass)
     assert result["type"] is FlowResultType.FORM
-    assert result["step_id"] == "user"
+    assert result["step_id"] == "link"
     assert result["errors"] == {"base": "no_contracts"}
 
     mock_client.async_get_contracts.return_value = contracts
-    result = await _submit_credentials(hass, result["flow_id"])
-    assert result["type"] is FlowResultType.FORM
+    result = await _submit_link(hass, result["flow_id"])
     assert result["step_id"] == "select_contract"
 
 
@@ -160,9 +200,7 @@ async def test_inactive_contracts_are_offered(
         c for c in contracts if not c.is_active
     ]
 
-    result = await _start_user_flow(hass)
-    result = await _submit_credentials(hass, result["flow_id"])
-    assert result["type"] is FlowResultType.FORM
+    result = await _login(hass)
     assert result["step_id"] == "select_contract"
 
     result = await hass.config_entries.flow.async_configure(
@@ -181,8 +219,7 @@ async def test_duplicate_contract_aborts(
     """Selecting an already-configured contract aborts the flow."""
     mock_config_entry.add_to_hass(hass)
 
-    result = await _start_user_flow(hass)
-    result = await _submit_credentials(hass, result["flow_id"])
+    result = await _login(hass)
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_CONTRACT_ID: TEST_CONTRACT_ID}
     )
@@ -192,46 +229,38 @@ async def test_duplicate_contract_aborts(
     assert len(hass.config_entries.async_entries(DOMAIN)) == 1
 
 
-@pytest.mark.parametrize(
-    ("side_effect", "error"),
-    [
-        (BudgetThuisAuthError("bad credentials"), "invalid_auth"),
-        (BudgetThuisConnectionError("timeout"), "cannot_connect"),
-        (RuntimeError("boom"), "unknown"),
-    ],
-)
 @pytest.mark.usefixtures("mock_setup_entry")
 async def test_reauth_flow(
     hass: HomeAssistant,
     mock_client: MagicMock,
+    mock_login: MagicMock,
     mock_config_entry: MockConfigEntry,
-    side_effect: Exception,
-    error: str,
 ) -> None:
-    """Reauth shows errors, recovers, rotates the token, and never duplicates."""
+    """Reauth mails a new link, handles a bad link, and rotates the token."""
     mock_config_entry.add_to_hass(hass)
 
     result = await mock_config_entry.start_reauth_flow(hass)
     assert result["type"] is FlowResultType.FORM
     assert result["step_id"] == "reauth_confirm"
 
-    mock_client.login.side_effect = side_effect
-    result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {CONF_PASSWORD: "wrong-password"}
-    )
-    assert result["type"] is FlowResultType.FORM
+    mock_login.async_request_link.side_effect = BudgetThuisConnectionError("down")
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
     assert result["step_id"] == "reauth_confirm"
-    assert result["errors"] == {"base": error}
+    assert result["errors"] == {"base": "cannot_connect"}
 
-    mock_client.login.side_effect = None
-    mock_client.login.return_value = Tokens(
-        access_token="new-access-token",
-        refresh_token="new-refresh-token",
-        expires_at=time.time() + 3600,
-    )
-    result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {CONF_PASSWORD: TEST_PASSWORD}
-    )
+    mock_login.async_request_link.side_effect = None
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
+    mock_login.async_request_link.assert_awaited_with(TEST_USERNAME)
+    assert result["step_id"] == "link"
+
+    mock_login.async_complete.side_effect = BudgetThuisInvalidLinkError("used")
+    result = await _submit_link(hass, result["flow_id"])
+    assert result["errors"] == {"base": "invalid_link"}
+
+    mock_login.async_complete.side_effect = None
+    mock_login.async_complete.return_value = fresh_tokens()
+    mock_login.async_complete.return_value.refresh_token = "new-refresh-token"
+    result = await _submit_link(hass, result["flow_id"])
     await hass.async_block_till_done()
 
     assert result["type"] is FlowResultType.ABORT
@@ -259,9 +288,8 @@ async def test_reauth_account_mismatch_aborts(
     ]
 
     result = await mock_config_entry.start_reauth_flow(hass)
-    result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {CONF_PASSWORD: TEST_PASSWORD}
-    )
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
+    result = await _submit_link(hass, result["flow_id"])
 
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "reauth_account_mismatch"

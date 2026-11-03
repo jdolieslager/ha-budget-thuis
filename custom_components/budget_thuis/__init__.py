@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+import logging
 from typing import TYPE_CHECKING
+
+from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import PLATFORMS
 from .coordinator import (
@@ -16,14 +19,24 @@ from .coordinator import (
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
 
+_LOGGER = logging.getLogger(__name__)
+
 
 async def async_setup_entry(hass: HomeAssistant, entry: BudgetThuisConfigEntry) -> bool:
     """Set up Budget Thuis from a config entry."""
     tokens = TokenManager(hass, entry)
-    prices = PriceCoordinator(hass, entry, tokens)
+    price_coordinator = PriceCoordinator(hass, entry, tokens)
+    prices: PriceCoordinator | None = price_coordinator
     account = AccountCoordinator(hass, entry, tokens)
 
-    await prices.async_config_entry_first_refresh()
+    try:
+        await price_coordinator.async_config_entry_first_refresh()
+    except ConfigEntryNotReady:
+        if not price_coordinator.no_hourly_tariff:
+            raise
+        # Fixed-price contracts have no hourly tariff; set up without prices.
+        _LOGGER.info("No hourly tariff for this contract; price sensors disabled")
+        prices = None
     # Account data is nice-to-have: fetch it, but never block setup on it. If
     # the refresh failed, its entities stay unavailable until the next poll.
     await account.async_refresh()

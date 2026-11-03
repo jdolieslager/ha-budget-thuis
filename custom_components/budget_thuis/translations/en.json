@@ -3,14 +3,12 @@
     "step": {
       "user": {
         "title": "Budget Thuis",
-        "description": "Log in with your Budget Thuis account. Your contract is detected automatically.",
+        "description": "Budget Thuis logs you in with an e-mailed login link. Enter the e-mail address of your account and a link will be sent to it. Your contract is detected automatically.",
         "data": {
-          "username": "Email",
-          "password": "Password"
+          "username": "Email"
         },
         "data_description": {
-          "username": "The email address you use to sign in to the Budget Thuis app or website.",
-          "password": "Your Budget Thuis password. It is used once to log in and is never stored."
+          "username": "The email address you use to sign in to the Budget Thuis app or website."
         }
       },
       "select_contract": {
@@ -27,20 +25,26 @@
       },
       "reauth_confirm": {
         "title": "Re-authenticate Budget Thuis",
-        "description": "Enter the password for {username} to reconnect.",
+        "description": "Your Budget Thuis session has expired. Submit to send a new login link to {username}."
+      },
+      "link": {
+        "title": "Paste the login link",
+        "description": "A login link was sent to {username}. Do NOT click it: right-click (or long-press) the login button in the e-mail, copy the link address and paste it below. The link can be used only once and expires after a short time.",
         "data": {
-          "password": "Password"
+          "login_link": "Login link"
         },
         "data_description": {
-          "password": "Your current Budget Thuis password. It is used once to log in and is never stored."
+          "login_link": "The full link from the Budget Thuis e-mail. It is used once to log in and is never stored."
         }
       }
     },
     "error": {
-      "invalid_auth": "Invalid credentials.",
+      "invalid_auth": "Login was refused by Budget Thuis.",
       "cannot_connect": "Failed to connect.",
       "no_contracts": "No contracts found on this account.",
-      "unknown": "Unexpected error."
+      "unknown": "Unexpected error.",
+      "invalid_email": "Budget Thuis did not accept this e-mail address.",
+      "invalid_link": "This login link is invalid, expired or already used. Go back and request a new link."
     },
     "abort": {
       "already_configured": "This contract is already configured.",
@@ -73,34 +77,86 @@
   },
   "entity": {
     "sensor": {
-      "current_electricity_price": { "name": "Current electricity price" },
-      "current_price_commodity": { "name": "Current price commodity" },
-      "current_price_energy_tax": { "name": "Current price energy tax" },
-      "current_price_surcharge": { "name": "Current price surcharge" },
-      "next_hour_price": { "name": "Next hour price" },
-      "average_price_today": { "name": "Average price today" },
-      "lowest_price_today": { "name": "Lowest price today" },
-      "highest_price_today": { "name": "Highest price today" },
-      "lowest_price_time_today": { "name": "Lowest price time today" },
-      "highest_price_time_today": { "name": "Highest price time today" },
-      "percentage_of_max": { "name": "Percentage of max price" },
-      "monthly_advance_amount": { "name": "Monthly advance amount" },
-      "consumption_yesterday": { "name": "Consumption yesterday" },
-      "production_yesterday": { "name": "Production yesterday" },
-      "net_cost_yesterday": { "name": "Net cost yesterday" },
-      "consumption_month": { "name": "Consumption this month" },
-      "production_month": { "name": "Production this month" },
-      "net_cost_month": { "name": "Net cost this month" },
-      "next_free_energy_start": { "name": "Next free energy start" },
-      "next_free_energy_end": { "name": "Next free energy end" },
-      "standing_charge": { "name": "Fixed supply cost" },
-      "contract_type": { "name": "Contract type" },
-      "contract_start": { "name": "Contract start" },
-      "meter_reading_mandate": { "name": "Meter reading mandate" }
+      "current_electricity_price": {
+        "name": "Current electricity price"
+      },
+      "current_price_commodity": {
+        "name": "Current price commodity"
+      },
+      "current_price_energy_tax": {
+        "name": "Current price energy tax"
+      },
+      "current_price_surcharge": {
+        "name": "Current price surcharge"
+      },
+      "next_hour_price": {
+        "name": "Next hour price"
+      },
+      "average_price_today": {
+        "name": "Average price today"
+      },
+      "lowest_price_today": {
+        "name": "Lowest price today"
+      },
+      "highest_price_today": {
+        "name": "Highest price today"
+      },
+      "lowest_price_time_today": {
+        "name": "Lowest price time today"
+      },
+      "highest_price_time_today": {
+        "name": "Highest price time today"
+      },
+      "percentage_of_max": {
+        "name": "Percentage of max price"
+      },
+      "monthly_advance_amount": {
+        "name": "Monthly advance amount"
+      },
+      "consumption_yesterday": {
+        "name": "Consumption yesterday"
+      },
+      "production_yesterday": {
+        "name": "Production yesterday"
+      },
+      "net_cost_yesterday": {
+        "name": "Net cost yesterday"
+      },
+      "consumption_month": {
+        "name": "Consumption this month"
+      },
+      "production_month": {
+        "name": "Production this month"
+      },
+      "net_cost_month": {
+        "name": "Net cost this month"
+      },
+      "next_free_energy_start": {
+        "name": "Next free energy start"
+      },
+      "next_free_energy_end": {
+        "name": "Next free energy end"
+      },
+      "standing_charge": {
+        "name": "Fixed supply cost"
+      },
+      "contract_type": {
+        "name": "Contract type"
+      },
+      "contract_start": {
+        "name": "Contract start"
+      },
+      "meter_reading_mandate": {
+        "name": "Meter reading mandate"
+      }
     },
     "binary_sensor": {
-      "free_energy_active": { "name": "Free energy active" },
-      "free_energy_eligible": { "name": "Free energy eligible" }
+      "free_energy_active": {
+        "name": "Free energy active"
+      },
+      "free_energy_eligible": {
+        "name": "Free energy eligible"
+      }
     }
   }
 }

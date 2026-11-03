@@ -20,7 +20,8 @@ The API is unofficial and undocumented; build defensively and expect upstream ch
 custom_components/budget_thuis/   # client lives in the aiobudgetthuis PyPI package
 ├── __init__.py     # async_setup_entry: TokenManager + two coordinators -> runtime_data
 ├── coordinator.py  # TokenManager (shared login/refresh) + PriceCoordinator (fast) + AccountCoordinator (slow) + RuntimeData
-├── config_flow.py  # username/password -> discover contracts -> pick + optional alias; reauth; options
+├── auth.py         # magic-link login (request link, complete pasted link, PKCE code exchange)
+├── config_flow.py  # email -> mailed login link pasted back -> discover contracts -> pick + optional alias; reauth; options
 ├── entity.py       # base CoordinatorEntity, one DeviceInfo per entry
 ├── sensor.py       # price sensors + account/usage sensors
 ├── binary_sensor.py# free-energy active / eligible
@@ -30,8 +31,9 @@ custom_components/budget_thuis/   # client lives in the aiobudgetthuis PyPI pack
 tests/              # empty for now (client tests moved to aiobudgetthuis); HA-harness tests are next
 ```
 
-- Auth: OAuth2 + PKCE via server-rendered login-form replay on `accounts.budgetthuis.nl`;
-  data API on `app.api.nutsservices.nl`. Only the **refresh token** is stored (never the password).
+- Auth: OAuth2 + PKCE on `accounts.budgetthuis.nl`; the password form was replaced by an
+  e-mailed login link (`/inloglink-aanvragen`), handled in `auth.py`;
+  data API on `app.api.nutsservices.nl`. Only the **refresh token** is stored (never the login link).
 - Two coordinators share one `TokenManager` → a single login/refresh serves both.
 - Verified running in the owner's HA 2026.8.3 (all sensors populate).
 
